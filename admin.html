@@ -821,8 +821,8 @@ var ADMIN_USER = 'admin';
 var ADMIN_PASS = 'gunners2026';
 
 // ── Cloud (JSONBin) ──────────────────────────────────
-var BIN_ID  = localStorage.getItem('gd_bin_id')  || '';
-var API_KEY = localStorage.getItem('gd_api_key') || '';
+var BIN_ID  = 6a2eb678da38895dfebee716('gd_bin_id')  || '';
+var API_KEY = $2a$10$Uh9yEH0a9qXYx3NGzQx6Ve8tzuiKRxNdWfoOJyE9aeKwxKMenvp6u('gd_api_key') || '';
 function cloudURL() { return 'https://api.jsonbin.io/v3/b/' + BIN_ID; }
 function hasCloud()  { return BIN_ID.length > 4 && API_KEY.length > 4; }
 
