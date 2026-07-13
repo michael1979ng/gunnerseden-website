@@ -4,127 +4,251 @@
   <!-- Homepage -->
   <url>
     <loc>https://gunnersden.net/</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Recent Articles -->
+  <!-- Articles -->
   <url>
-    <loc>https://gunnersden.net/#art-1781701993745</loc>
-    <lastmod>2026-06-17</lastmod>
+    <loc>https://share.gunnersden.net/declan-rice-injury-update-thomas-tuchel-reveals-arsenal-star-played-through-illn</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gunnersden.net/#art-1781701303250</loc>
-    <lastmod>2026-06-17</lastmod>
+    <loc>https://share.gunnersden.net/arsenal-transfer-news-round-up-guimares-breakthrough-trossard-exit-and-tzolis-ta</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gunnersden.net/#art-1781695929168</loc>
-    <lastmod>2026-06-17</lastmod>
+    <loc>https://share.gunnersden.net/arsenal-transfer-news-bruno-guimares-agrees-personal-terms-but-newcastle-refuse-</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gunnersden.net/#art-1781477305787</loc>
+    <loc>https://share.gunnersden.net/arsenal-women-sign-world-cup-winner-ona-batlle-from-barcelona</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/opinion-marcus-rashford-could-be-the-bargain-signing-arsenal-cant-afford-to-igno</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/official-arsenal-confirm-signing-of-illan-meslier-as-goalkeeper-joins-on-free-tr</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/official-arsenal-women-sign-switzerland-midfielder-geraldine-reuteler</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-women-have-completed-the-signing-of-germany-forward-selina-cerci-on-a-fr</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-women-confirm-georgia-stanway-signing-as-england-star-joins-on-free-tran</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-transfer-news-gunners-agree-a-free-transfer-deal-for-former-leeds-goalke</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/opinion-why-selling-leandro-trossard-is-smart-business-for-arsenal</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-transfer-news-besiktas-agree-20m-deal-to-sign-leandro-trossard</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-had-the-deal-so-how-did-jeremy-monga-end-up-at-manchester-city</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/jakub-kiwior-joins-fc-porto-permanently-after-leaving-arsenal</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-confirm-2026-pre-season-fixtures-against-borussia-dortmund-and-como-ahea</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/bukayo-saka-extends-incredible-world-cup-record-with-another-england-assist</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-prepare-80m-bid-for-bruno-guimares-as-newcastle-face-transfer-decision</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/bruno-guimaraes-to-arsenal-gunners-hold-talks-with-newcastle-stars-camp</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/gabriel-jesus-transfer-update-everton-eye-arsenal-star-amid-summer-exit-rumours</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-confirm-permanent-piero-hincapie-transfer-in-40m-deal-from-bayer-leverku</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-agree-deal-for-leicester-city-wonderkid-jeremy-monga-in-10m-transfer-cou</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-transfer-news-julian-alvarez-could-be-included-in-shock-viktor-gykeres-s</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-transfer-news-gunners-to-open-talks-for-aston-villa-star-morgan-rogers</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-vs-liverpool-1989-the-night-michael-thomas-won-the-league-at-anfield</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/alex-james-and-ted-drake-the-arsenal-legends-who-built-the-clubs-first-golden-er</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/noni-madueke-compares-englands-world-cup-spirit-to-arsenals-title-winning-cultur</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-join-liverpool-and-chelsea-in-pursuit-of-60m-rated-morocco-wonderkid-ayy</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-fixtures-202627-full-premier-league-schedule-revealed-as-gunners-launch-</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-transfer-news-gunners-monitoring-psg-winger-bradley-barcola-ahead-of-sum</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-submit-official-bid-for-leicester-city-wonderkid-jeremy-monga-as-transfe</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/every-arsenal-goal-in-the-202526-premier-league-title-winning-season</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/all-of-arsenals-champions-league-goals-in-202526</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-are-focusing-on-strengthening-the-left-wing-and-central-midfield</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-targeting-club-brugge-winger-tzolis</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Archive Articles 2025/26 -->
-  <url>
-    <loc>https://gunnersden.net/#art-1</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gunnersden.net/#art-2</loc>
-    <lastmod>2026-05-31</lastmod>
+    <loc>https://share.gunnersden.net/champions-of-england-arsenals-historic-202526-premier-league-title</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gunnersden.net/#art-3</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://share.gunnersden.net/so-close-arsenals-ucl-final-heartbreak-in-budapest</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gunnersden.net/#art-4</loc>
-    <lastmod>2026-06-05</lastmod>
+    <loc>https://share.gunnersden.net/viktor-gyokeres-the-striker-arsenal-had-been-waiting-for</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gunnersden.net/#art-5</loc>
-    <lastmod>2025-08-23</lastmod>
+    <loc>https://share.gunnersden.net/the-set-piece-machine-how-arsenal-scored-35-dead-ball-goals-in-202526</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- Archive Articles 2024/25 -->
-  <url><loc>https://gunnersden.net/#art-401</loc><lastmod>2025-05-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-402</loc><lastmod>2025-05-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-501</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-502</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-503</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-504</loc><lastmod>2025-06-06</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-505</loc><lastmod>2025-06-06</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-506</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-507</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-508</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-509</loc><lastmod>2025-06-19</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-510</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-511</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-512</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-513</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-514</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-515</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-516</loc><lastmod>2025-06-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-601</loc><lastmod>2025-07-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-602</loc><lastmod>2025-07-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-603</loc><lastmod>2025-07-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-604</loc><lastmod>2025-08-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gunnersden.net/#art-605</loc><lastmod>2025-08-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-
-  <!-- Archive Articles 2023/24 -->
-  <url><loc>https://gunnersden.net/#art-201</loc><lastmod>2023-06-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-202</loc><lastmod>2023-06-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-203</loc><lastmod>2023-06-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-204</loc><lastmod>2023-06-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-205</loc><lastmod>2023-06-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-206</loc><lastmod>2023-06-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-207</loc><lastmod>2023-07-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-208</loc><lastmod>2023-07-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-209</loc><lastmod>2023-07-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-210</loc><lastmod>2023-07-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-211</loc><lastmod>2023-07-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-212</loc><lastmod>2023-08-06</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-213</loc><lastmod>2023-08-11</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-214</loc><lastmod>2023-08-12</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-215</loc><lastmod>2023-08-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-216</loc><lastmod>2023-08-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-217</loc><lastmod>2023-08-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-218</loc><lastmod>2023-09-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-219</loc><lastmod>2023-09-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-220</loc><lastmod>2023-09-20</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-221</loc><lastmod>2023-09-24</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-222</loc><lastmod>2023-09-24</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-223</loc><lastmod>2023-09-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-224</loc><lastmod>2023-10-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-225</loc><lastmod>2023-10-28</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-226</loc><lastmod>2023-10-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-227</loc><lastmod>2023-09-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-228</loc><lastmod>2023-11-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-301</loc><lastmod>2024-08-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-302</loc><lastmod>2024-08-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-303</loc><lastmod>2024-08-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-304</loc><lastmod>2024-08-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://gunnersden.net/#art-305</loc><lastmod>2024-04-01</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url>
+    <loc>https://share.gunnersden.net/5-0-leeds-gyokeres-announces-himself-to-the-premier-league</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://share.gunnersden.net/arsenal-women-win-inaugural-fifa-womens-champions-cup</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
