@@ -44,6 +44,27 @@ function slugify(title) {
     .replace(/\s+/g,'-').replace(/-+/g,'-').slice(0, 80);
 }
 
+// Replace the inner content of a <div id="..."> by counting nested div depth,
+// rather than a fixed-shape regex — article card HTML nests divs unpredictably,
+// so a naive regex either fails to match or matches far more than intended.
+function replaceDivInnerById(html, id, newInner) {
+  var idAttr = 'id="' + id + '"';
+  var idPos = html.indexOf(idAttr);
+  if (idPos === -1) return html; // div not present in this template — skip silently
+  var openTagEnd = html.indexOf('>', idPos) + 1;
+  var depth = 1;
+  var divRe = /<div\b|<\/div>/g;
+  divRe.lastIndex = openTagEnd;
+  var m;
+  while ((m = divRe.exec(html))) {
+    if (m[0] === '</div>') depth--; else depth++;
+    if (depth === 0) {
+      return html.slice(0, openTagEnd) + newInner + html.slice(m.index);
+    }
+  }
+  return html; // no matching close found — leave untouched rather than corrupt the page
+}
+
 // Category → page bucket (mirrors CAT_ROUTE in site JS)
 var CAT_ROUTE = {
   'Breaking News':'news','Transfer':'news','Transfers':'news',
@@ -88,25 +109,23 @@ async function main() {
   var html = fs.readFileSync(TEMPLATE, 'utf8');
 
   // ── 1. Inject pre-baked state ─────────────────────────────
+  // Strip any previously-injected state tag(s) first — without this, every
+  // rebuild appends another full copy of the site's data and the page grows
+  // without bound (this is what inflated index.html to 70MB+ over time).
+  html = html.replace(/\n?<script>window\.__PRELOADED_STATE__=[\s\S]*?<\/script>\n?/g, '');
   var stateTag = '\n<script>window.__PRELOADED_STATE__=' + JSON.stringify(data) + ';</script>\n';
   html = html.replace('</head>', stateTag + '</head>');
 
   // ── 2. Pre-render featured grid (top 9 articles) ──────────
   var featuredHTML = articles.slice(0, 9).map(renderCard).join('')
     || '<div style="color:var(--gr);font-size:13px;padding:20px 0">No articles yet.</div>';
-  html = html.replace(
-    '<div class="grid-3" id="featuredGrid"></div>',
-    '<div class="grid-3" id="featuredGrid">' + featuredHTML + '</div>'
-  );
+  html = replaceDivInnerById(html, 'featuredGrid', featuredHTML);
 
   // ── 3. Pre-render news grid ───────────────────────────────
   var newsArts = articles.filter(function(a) { return (CAT_ROUTE[a.cat] || 'news') === 'news'; });
   var newsHTML = newsArts.map(renderCard).join('')
     || '<div style="color:var(--gr);font-size:13px;padding:20px 0">No news articles yet.</div>';
-  html = html.replace(
-    '<div class="grid-3" id="newsGrid"></div>',
-    '<div class="grid-3" id="newsGrid">' + newsHTML + '</div>'
-  );
+  html = replaceDivInnerById(html, 'newsGrid', newsHTML);
 
   // ── 4. Write index.html ───────────────────────────────────
   fs.writeFileSync(OUT_HTML, html, 'utf8');
