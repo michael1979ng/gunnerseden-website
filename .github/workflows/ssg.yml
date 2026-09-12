@@ -7,6 +7,16 @@ on:
     - cron: '*/30 * * * *'
   workflow_dispatch:
 
+# Without this, a scheduled run, a Worker-triggered run, and a push-triggered
+# run can all be mid-flight at once. Each builds from whatever it checked out
+# at *start*, then force-pushes at the *end* — so a slow run that started
+# before a newer commit landed can silently overwrite that newer commit with
+# stale output. Serializing runs (no two ever execute at the same time)
+# removes that window entirely.
+concurrency:
+  group: ssg-build
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,6 +34,15 @@ jobs:
         with:
           node-version: '20'
 
+      # Belt-and-suspenders alongside the concurrency lock above: make sure
+      # this run's build.js reads the truly latest main, not whatever was
+      # checked out when the job was queued (which can be stale if this run
+      # sat waiting behind another one in the concurrency group).
+      - name: Sync to latest main before building
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
       - name: Run SSG build
         run: node build.js
 
@@ -31,11 +50,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin main
           git add index.html sitemap.xml
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "build: regenerate SSG output [skip ci]"
-            git push --force-with-lease origin main
+            git push origin main
           fi
