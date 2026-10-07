@@ -38,10 +38,21 @@ function esc(s) {
     .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// Same rule as the Worker, site and Admin: accents transliterated
+// (Gyökeres -> gyokeres), long titles cut at a word boundary.
 function slugify(title) {
-  return (title || '').toLowerCase()
-    .replace(/[^a-z0-9\s-]/g,'').trim()
-    .replace(/\s+/g,'-').replace(/-+/g,'-').slice(0, 80);
+  var s = String(title || '')
+    .replace(/ß/g,'ss').replace(/[øØ]/g,'o').replace(/[æÆ]/g,'ae')
+    .replace(/[œŒ]/g,'oe').replace(/[đĐ]/g,'d').replace(/[łŁ]/g,'l');
+  s = s.normalize('NFD').replace(/[̀-ͯ]/g,'')
+    .toLowerCase().replace(/[^a-z0-9\s-]/g,'').trim()
+    .replace(/\s+/g,'-').replace(/-+/g,'-');
+  if (s.length > 80) {
+    var cut = s.slice(0, 80), i = cut.lastIndexOf('-');
+    if (s.charAt(80) !== '-' && i >= 40) cut = cut.slice(0, i);
+    s = cut.replace(/-+$/, '');
+  }
+  return s;
 }
 
 // Replace the inner content of a <div id="..."> by counting nested div depth,
@@ -113,7 +124,24 @@ async function main() {
   // rebuild appends another full copy of the site's data and the page grows
   // without bound (this is what inflated index.html to 70MB+ over time).
   html = html.replace(/\n?<script>window\.__PRELOADED_STATE__=[\s\S]*?<\/script>\n?/g, '');
-  var stateTag = '\n<script>window.__PRELOADED_STATE__=' + JSON.stringify(data) + ';</script>\n';
+  // Article text is ~80% of the baked data. Keep it for the newest KEEP_BODIES
+  // articles and let the page fetch the rest from the Gist when one is opened
+  // (gdEnsureBodies in the site). Only done when the template has that loader,
+  // so an older index.html never ends up with blank articles.
+  var KEEP_BODIES = 15;
+  var stateData = data;
+  if (html.indexOf('gdEnsureBodies') !== -1) {
+    stateData = Object.assign({}, data, {
+      articles: articles.map(function(a, i) {
+        if (i < KEEP_BODIES || !a.body) return a;
+        var slim = Object.assign({}, a);
+        delete slim.body; delete slim.body2; delete slim.body3;
+        slim._lazy = 1;
+        return slim;
+      })
+    });
+  }
+  var stateTag = '\n<script>window.__PRELOADED_STATE__=' + JSON.stringify(stateData) + ';</script>\n';
   html = html.replace('</head>', stateTag + '</head>');
 
   // ── 2. Pre-render featured grid (top 9 articles) ──────────
@@ -127,6 +155,30 @@ async function main() {
     || '<div style="color:var(--gr);font-size:13px;padding:20px 0">No news articles yet.</div>';
   html = replaceDivInnerById(html, 'newsGrid', newsHTML);
 
+  // ── 3b. Minify the page's own inline scripts (skipped if terser is absent;
+  // any script that fails to minify or re-parse is left exactly as it was) ──
+  var terser = null;
+  try { terser = require('terser'); } catch (e) { console.log('[SSG] terser not installed - skipping JS minify'); }
+  if (terser) {
+    var before = html.length;
+    var scriptRe = /<script>([\s\S]*?)<\/script>/g;
+    var pieces = [], last = 0, sm;
+    while ((sm = scriptRe.exec(html))) {
+      var code = sm[1], out = code;
+      if (code.indexOf('window.__PRELOADED_STATE__=') !== 0 && code.length > 2000) {
+        try {
+          var r = await terser.minify(code, { compress: { passes: 1 }, mangle: true, format: { comments: false } });
+          if (r && r.code) { new Function(r.code); out = r.code; }
+        } catch (e) { out = code; }
+      }
+      pieces.push(html.slice(last, sm.index) + '<script>' + out + '</script>');
+      last = sm.index + sm[0].length;
+    }
+    pieces.push(html.slice(last));
+    html = pieces.join('');
+    console.log('[SSG] JS minify: ' + before + ' -> ' + html.length + ' bytes');
+  }
+
   // ── 4. Write index.html ───────────────────────────────────
   fs.writeFileSync(OUT_HTML, html, 'utf8');
   console.log('[SSG] Written ' + OUT_HTML);
@@ -134,9 +186,11 @@ async function main() {
   // ── 5. Generate sitemap.xml ───────────────────────────────
   var today = new Date().toISOString().slice(0, 10);
   var urls = ['  <url><loc>' + SITE_URL + '/</loc><changefreq>daily</changefreq><priority>1.0</priority><lastmod>' + today + '</lastmod></url>'];
+  var seenSlugs = {};
   articles.forEach(function(a) {
     var slug = slugify(a.title);
-    if (!slug) return;
+    if (!slug || seenSlugs[slug]) return;
+    seenSlugs[slug] = 1;
     var date = (a.date || today).replace(/\//g, '-');
     // normalise DD-MM-YYYY → YYYY-MM-DD if needed
     if (/^\d{2}-\d{2}-\d{4}$/.test(date)) {
