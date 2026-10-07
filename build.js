@@ -76,6 +76,24 @@ function replaceDivInnerById(html, id, newInner) {
   return html; // no matching close found — leave untouched rather than corrupt the page
 }
 
+// Same rule as the site's gdIsArchive(): older than a year, undated, or
+// imported from the old blog -> not shown in the live grids.
+function parseArticleDate(d) {
+  d = String(d || '').trim();
+  var m = d.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return new Date(+m[1], +m[2] - 1, +m[3]);
+  m = d.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (m) return new Date(+m[3], +m[2] - 1, +m[1]);
+  var t = d ? new Date(d) : null;
+  return t && !isNaN(t) ? t : null;
+}
+function isArchive(a) {
+  if (a.origUrl) return true;
+  var p = parseArticleDate(a.date);
+  if (!p) return true;
+  return (Date.now() - p.getTime()) > 365 * 86400000;
+}
+
 // Category → page bucket (mirrors CAT_ROUTE in site JS)
 var CAT_ROUTE = {
   'Breaking News':'news','Transfer':'news','Transfers':'news',
@@ -145,15 +163,19 @@ async function main() {
   html = html.replace('</head>', stateTag + '</head>');
 
   // ── 2. Pre-render featured grid (top 9 articles) ──────────
-  var featuredHTML = articles.slice(0, 9).map(renderCard).join('')
+  var featuredHTML = articles.filter(function(a) { return !isArchive(a); }).slice(0, 9).map(renderCard).join('')
     || '<div style="color:var(--gr);font-size:13px;padding:20px 0">No articles yet.</div>';
   html = replaceDivInnerById(html, 'featuredGrid', featuredHTML);
 
   // ── 3. Pre-render news grid ───────────────────────────────
-  var newsArts = articles.filter(function(a) { return (CAT_ROUTE[a.cat] || 'news') === 'news'; });
+  var newsArts = articles.filter(function(a) { return (CAT_ROUTE[a.cat] || 'news') === 'news' && !isArchive(a); });
   var newsHTML = newsArts.map(renderCard).join('')
     || '<div style="color:var(--gr);font-size:13px;padding:20px 0">No news articles yet.</div>';
   html = replaceDivInnerById(html, 'newsGrid', newsHTML);
+
+  // ── 3a. Pre-render the Arsenal Women grid (so the page never ships an empty placeholder) ──
+  var womenArts = articles.filter(function(a) { return /women/i.test(a.cat || ''); });
+  if (womenArts.length) html = replaceDivInnerById(html, 'womenGrid', womenArts.map(renderCard).join(''));
 
   // ── 3b. Minify the page's own inline scripts (skipped if terser is absent;
   // any script that fails to minify or re-parse is left exactly as it was) ──
