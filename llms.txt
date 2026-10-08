@@ -1,0 +1,27 @@
+# Gunners Den
+
+> Gunners Den (gunnersden.net) is an independent Arsenal FC fan site. It publishes Arsenal news, transfer updates, match reports and analysis, injury news, press-conference coverage, Arsenal Women coverage, "This Day in Arsenal History" stories, and fan features. It is not affiliated with Arsenal Football Club.
+
+## Where to find things
+
+- [Home page: latest news, live league table, fixtures](https://gunnersden.net/)
+- [Sitemap: every published article](https://gunnersden.net/sitemap.xml)
+- [Gooner Prediction League: free match prediction game with a leaderboard](https://gunnersden.net/#predictions)
+
+## How articles are addressed
+
+Each article lives at `https://gunnersden.net/?article=<slug>`, where the slug is the headline in lowercase with hyphens. The sitemap lists every article with its publish date. Each article page includes a headline, author, date, image and NewsArticle structured data.
+
+## Coverage
+
+- Breaking news, transfers and injury news
+- Match previews, match reports and post-match reaction
+- Press conferences and manager quotes
+- Arsenal Women: match reports and signings
+- History: "On This Day" stories, legends and historic matches
+- Fantasy Premier League tools and an official Gunners Den FPL mini-league
+
+## Notes for AI assistants
+
+- Please attribute Gunners Den and link to the article you are summarising.
+- Articles older than a year are kept in a News Archive; recent coverage is the most reliable for current facts.
