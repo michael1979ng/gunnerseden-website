@@ -94,6 +94,17 @@ function isArchive(a) {
   return (Date.now() - p.getTime()) > 365 * 86400000;
 }
 
+// Word count of an article body (markers and tags stripped). Mirrors crawlWordCount() in the Worker:
+// under THIN_WORDS words the crawler page is noindex, so those articles stay out of the sitemap too.
+var THIN_WORDS = 150;
+function articleWords(a) {
+  var t = String(a.body || '').replace(/\[[a-z]+\d*(?::[^\]]*)?\]/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&amp;/g, ' ');
+  return t.split(/\s+/).filter(Boolean).length;
+}
+function monthLabel(d) {
+  return d ? d.toLocaleString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }) : 'Older articles';
+}
+
 // Category → page bucket (mirrors CAT_ROUTE in site JS)
 var CAT_ROUTE = {
   'Breaking News':'news','Transfer':'news','Transfers':'news',
@@ -211,7 +222,7 @@ async function main() {
   var seenSlugs = {};
   articles.forEach(function(a) {
     var slug = slugify(a.title);
-    if (!slug || seenSlugs[slug]) return;
+    if (!slug || seenSlugs[slug] || articleWords(a) < THIN_WORDS) return;
     seenSlugs[slug] = 1;
     var date = (a.date || today).replace(/\//g, '-');
     // normalise DD-MM-YYYY → YYYY-MM-DD if needed
@@ -221,11 +232,35 @@ async function main() {
     }
     urls.push('  <url><loc>' + SITE_URL + '/?article=' + slug + '</loc><lastmod>' + date + '</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>');
   });
+  urls.splice(1, 0, '  <url><loc>' + SITE_URL + '/archive.html</loc><lastmod>' + today + '</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>');
   var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
     + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + urls.join('\n') + '\n</urlset>';
   fs.writeFileSync(OUT_MAP, sitemap, 'utf8');
   console.log('[SSG] Written ' + OUT_MAP + ' (' + urls.length + ' URLs)');
+  // ── 6. Generate archive.html: one crawlable page linking to every article ──
+  var groups = {}, order = [];
+  articles.slice().sort(function(a, b) {
+    var x = parseArticleDate(a.date), y = parseArticleDate(b.date);
+    return (y ? y.getTime() : 0) - (x ? x.getTime() : 0);
+  }).forEach(function(a) {
+    var slug = slugify(a.title);
+    if (!slug) return;
+    var label = monthLabel(parseArticleDate(a.date));
+    if (!groups[label]) { groups[label] = []; order.push(label); }
+    groups[label].push('<li><a href="/?article=' + slug + '">' + esc(a.title) + '</a></li>');
+  });
+  var archiveHtml = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+    + '<title>All Arsenal Articles | Gunners Den Archive</title>'
+    + '<meta name="description" content="Every Gunners Den article in one place: Arsenal news, transfers, match reports, analysis and history, listed newest first.">'
+    + '<link rel="canonical" href="' + SITE_URL + '/archive.html"><meta name="robots" content="index, follow">'
+    + '<style>body{margin:0;background:#0b0b0b;color:#eee;font-family:Arial,Helvetica,sans-serif}.w{max-width:820px;margin:0 auto;padding:28px 18px 60px}a{color:#ffb3b5}h1{font-size:26px}h2{font-size:17px;margin:30px 0 8px;color:#9C824A}ul{padding-left:18px;line-height:1.8;margin:0}</style></head><body><div class="w">'
+    + '<p><a href="/">&larr; Gunners Den home</a></p><h1>All Gunners Den Articles</h1>'
+    + '<p style="color:#bbb">Arsenal news, transfers, match reports, analysis and history, newest first.</p>'
+    + order.map(function(l) { return '<h2>' + esc(l) + '</h2><ul>' + groups[l].join('') + '</ul>'; }).join('')
+    + '</div></body></html>';
+  fs.writeFileSync('archive.html', archiveHtml, 'utf8');
+  console.log('[SSG] Written archive.html (' + articles.length + ' articles)');
   console.log('[SSG] Done.');
 }
 
